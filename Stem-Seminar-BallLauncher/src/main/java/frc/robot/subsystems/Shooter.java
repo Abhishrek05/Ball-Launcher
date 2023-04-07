@@ -4,11 +4,20 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
-  public Shooter() {}
+  private PWMTalonSRX leftShooterMotor;
+  private PWMTalonSRX rightShooterMotor;
+  
+
+  public Shooter() {
+    this.leftShooterMotor = leftShooterMotor;
+    this.rightShooterMotor = rightShooterMotor;
+  }
 
   @Override
   public void periodic() {
