@@ -15,7 +15,7 @@ public class Shooter extends SubsystemBase {
   private PWMTalonSRX rightShooterMotor;
   
 
-  public Shooter() {
+  public Shooter(PWMTalonSRX leftShooterMotor, PWMTalonSRX rightShooterMotor) {
     this.leftShooterMotor = leftShooterMotor;
     this.rightShooterMotor = rightShooterMotor;
   }
