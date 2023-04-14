@@ -27,4 +27,13 @@ public class Drive extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
+  public void driveWithInput(double move, double steer) {
+    driveTrain.arcadeDrive(move, steer);
+  }
+
+  public void tankDriveWithInput(double leftMove, double rightMove) {
+    leftDriveMotor.set(leftMove);
+    rightDriveMotor.set(rightMove);
+  }
 }
