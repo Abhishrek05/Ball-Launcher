@@ -4,5 +4,16 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
+
 /** Add your docs here. */
-public class RobotMap {}
+public class RobotMap {
+    public PWMTalonSRX m_leftDriveMotor;
+    public PWMTalonSRX m_rightDriveMotor;
+    public PWMTalonSRX m_leftShooterMotor;
+    public PWMTalonSRX m_rightShooterMotor;
+
+    public RobotMap() {}
+
+    
+}
