@@ -16,27 +16,31 @@ import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
  * the code necessary to operate a robot with tank drive.
  */
 public class Robot extends TimedRobot {
-  private DifferentialDrive m_myRobot;
-  private Joystick m_leftStick;
-  private Joystick m_rightStick;
+  // private DifferentialDrive m_myRobot;
+  // private Joystick m_leftStick;
+  // private Joystick m_rightStick;
 
-  private final PWMTalonSRX m_leftMotor = new PWMTalonSRX(0);
-  private final MotorController m_rightMotor = new PWMTalonSRX(1);
+  // private final PWMTalonSRX m_leftMotor = new PWMTalonSRX(0);
+  // private final MotorController m_rightMotor = new PWMTalonSRX(1);
+
+  private RobotContainer m_robotContainer;
 
   @Override
   public void robotInit() {
     // We need to invert one side of the drivetrain so that positive voltages
     // result in both sides moving forward. Depending on how your robot's
     // gearbox is constructed, you might have to invert the left side instead.
-    m_rightMotor.setInverted(true);
+    // m_rightMotor.setInverted(true);
 
-    m_myRobot = new DifferentialDrive(m_leftMotor, m_rightMotor);
-    m_leftStick = new Joystick(0);
-    m_rightStick = new Joystick(1);
+    // m_myRobot = new DifferentialDrive(m_leftMotor, m_rightMotor);
+    // m_leftStick = new Joystick(0);
+    // m_rightStick = new Joystick(1);
+    m_robotContainer = new RobotContainer();
   }
 
   @Override
   public void teleopPeriodic() {
-    m_myRobot.tankDrive(-m_leftStick.getY(), -m_rightStick.getY());
+    //m_myRobot.tankDrive(-m_leftStick.getY(), -m_rightStick.getY());
+    
   }
 }
