@@ -26,7 +26,7 @@ public class Shooter extends SubsystemBase {
   }
 
   public void shootWithInput(double speed) {
-    leftShooterMotor.set(speed);
-    rightShooterMotor.set(-speed);
+    leftShooterMotor.set(-speed); // ! Clockwise Spin
+    rightShooterMotor.set(speed); // ! Counterclockwise Spin
   }
 }
