@@ -18,10 +18,10 @@ public class Drive extends SubsystemBase {
   private DifferentialDrive driveTrain;
   
 
-  public Drive(PWMTalonSRX leftDriveMotor, PWMTalonSRX rightDriveMotor/*, DifferentialDrive driveTrain*/) {
+  public Drive(PWMTalonSRX leftDriveMotor, PWMTalonSRX rightDriveMotor, DifferentialDrive driveTrain) {
     this.leftDriveMotor = leftDriveMotor;
     this.rightDriveMotor = rightDriveMotor;
-    //this.driveTrain = driveTrain;
+    this.driveTrain = driveTrain;
   }
 
   @Override
@@ -37,4 +37,6 @@ public class Drive extends SubsystemBase {
     leftDriveMotor.set(leftMove);
     rightDriveMotor.set(rightMove);
   }
-}
+
+  
+  }

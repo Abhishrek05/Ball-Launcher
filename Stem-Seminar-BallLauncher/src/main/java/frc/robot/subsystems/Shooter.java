@@ -11,13 +11,19 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
-  private PWMTalonSRX leftShooterMotor;
-  private PWMTalonSRX rightShooterMotor;
+  private PWMTalonSRX leftFlyWheel;
+  private PWMTalonSRX rightFlyWheel;
+  private PWMTalonSRX rightTransMotor;
+  private PWMTalonSRX leftTransMotor;
+  private PWMTalonSRX load;
   
 
-  public Shooter(PWMTalonSRX leftShooterMotor, PWMTalonSRX rightShooterMotor) {
-    this.leftShooterMotor = leftShooterMotor;
-    this.rightShooterMotor = rightShooterMotor;
+  public Shooter(PWMTalonSRX leftShooterMotor, PWMTalonSRX rightShooterMotor, PWMTalonSRX load, PWMTalonSRX rightTransMotor, PWMTalonSRX leftTransMotor) {
+    this.leftFlyWheel = leftShooterMotor;
+    this.rightFlyWheel = rightShooterMotor;
+    this.rightTransMotor = rightTransMotor;
+    this.leftTransMotor = leftTransMotor;
+    this.load = load;
   }
 
   @Override
@@ -26,7 +32,35 @@ public class Shooter extends SubsystemBase {
   }
 
   public void shootWithInput(double speed) {
-    leftShooterMotor.set(-speed); // ! Clockwise Spin
-    rightShooterMotor.set(speed); // ! Counterclockwise Spin
+    leftFlyWheel.set(-speed); // Clockwise Spin
+    rightFlyWheel.set(speed); // Counterclockwise Spin
+    loadBall();
   }
+
+  public void spinWheels(double speed) {
+    leftFlyWheel.set(-speed); // Clockwise Spin
+    rightFlyWheel.set(speed); // Counterclockwise Spin
+  }
+
+  public void loadBall() {
+    load.set(0.1);
+  }
+
+  public void translateFly(String name, double speed) {
+
+    if (name == "Baseball") {
+      rightTransMotor.set(speed);
+      leftTransMotor.set(-speed);
+      
+    } else if (name == "Tennis") {
+      rightTransMotor.set(speed);
+      leftTransMotor.set(-speed);
+
+    } else if (name == "Softball") {
+      rightTransMotor.set(speed);
+      leftTransMotor.set(-speed);
+
+    }
+}
+
 }
