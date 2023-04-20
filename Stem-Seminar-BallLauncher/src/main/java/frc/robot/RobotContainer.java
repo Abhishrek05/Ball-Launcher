@@ -36,6 +36,7 @@ public class RobotContainer {
             m_robotDiffDrive.driveWithInput(getDeadbandedDriverController().getLeftY(), getDeadbandedDriverController().getLeftX());
         }, m_robotDiffDrive));
 
+
         /* Shooter Default Commands */
         m_robotShooter.setDefaultCommand(new InstantCommand(() -> m_robotShooter.shootWithInput(0), m_robotShooter));
 
@@ -47,15 +48,27 @@ public class RobotContainer {
     private void configButtonBindings() {
 
 
-
+        
 
         /* Shooter Buttons */
-        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.RIGHT_TRIGGER_AXIS) // ! Shoots balls
-            .onTrue(new InstantCommand(() -> m_robotShooter.shootWithInput(0.5)));
+        // new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.RIGHT_TRIGGER_AXIS) //  Shoots balls
+        //     .onTrue(new InstantCommand(() -> m_robotShooter.shootWithInput(0.5)));
 
-        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.LEFT_BUMPER_BUTTON) // ! Spins wheels
+        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.LEFT_BUMPER_BUTTON) // ! Spins wheels while held down
             .whileTrue(new InstantCommand(() -> m_robotShooter.spinWheels(0.5)))
             .whileFalse(new InstantCommand(() -> stopShooter.asProxy()));
+
+        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.RIGHT_BUMPER_BUTTON) // ! Continuously Spins Wheels
+            .onTrue(new InstantCommand(() -> m_robotShooter.spinWheels(0.5)));
+
+        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.X_BUTTON) // ! Interrupt Button
+            .onTrue(new InstantCommand(() -> interrupt.asProxy()));
+
+
+
+
+
+
 
         new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.A_BUTTON)           // ! Sets to Baseballs
             .onTrue(new InstantCommand(() -> m_robotShooter.translateFly("Baseball", 0.5)));
@@ -75,8 +88,7 @@ public class RobotContainer {
 
 
 
-        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.X_BUTTON) // ! Interrupt Button
-            .onTrue(new InstantCommand(() -> interrupt.asProxy()));
+    
 
 
 
