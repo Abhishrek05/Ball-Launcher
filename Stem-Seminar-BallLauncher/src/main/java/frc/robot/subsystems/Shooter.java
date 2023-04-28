@@ -41,6 +41,10 @@ public class Shooter extends SubsystemBase {
     rightFlyWheel.set(speed); // Counterclockwise Spin
   }
 
+  public void loadBall(double speed) {
+    load.set(speed);
+  }
+
   public void translateFly(String name, double speed) {
 
     if (name == "Baseball") {

@@ -4,20 +4,23 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 /** Add your docs here. */
 public final class Constants {
 
     public static final class DriveConstants{
         /* Drive Motor IDs */
-        public static final int LEFT_DRIVE_MOTOR_ID = 1; // TODO
-        public static final int RIGHT_DRIVE_MOTOR_ID = 2; // TODO
-        
+        public static final int LEFT_DRIVE_MOTOR_ID = 0; // TODO
+        public static final int RIGHT_DRIVE_MOTOR_ID = 1; // TODO
     }
 
     public static final class ShooterConstants{
         /* Shooter Motor IDs */
-        public static final int LEFT_SHOOTER_MOTOR_ID = 10; // TODO
-        public static final int RIGHT_SHOOTER_MOTOR_ID = 11; // TODO
+        public static final int LEFT_SHOOTER_MOTOR_ID = 5; // TODO
+        public static final int RIGHT_SHOOTER_MOTOR_ID = 6; // TODO
+
+
         public static final int LEFT_TRANS_MOTOR_ID = 15; // TODO
         public static final int RIGHT_TRANS_MOTOR_ID = 16; // TODO
         public static final int LOAD_ID = 17; // TODO
