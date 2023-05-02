@@ -31,6 +31,7 @@ public class Drive extends SubsystemBase {
 
   public void driveWithInput(double move, double steer) {
     driveTrain.arcadeDrive(move, steer); // ! If this does not work, go to 2020 repo and use the math used there in the DriveWithJoystick class (Is a command)
+    rightDriveMotor.set(-rightDriveMotor.get());
   }
 
   public void tankDriveWithInput(double leftMove, double rightMove) {
