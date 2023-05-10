@@ -18,7 +18,7 @@ import frc.utility.DeadbandedXboxController;
 public class RobotContainer {
     public final RobotMap m_robotMap = new RobotMap();
     public final Drive m_robotDiffDrive= new Drive(m_robotMap.m_leftDriveMotor, m_robotMap.m_rightDriveMotor, m_robotMap.m_driveTrain);
-    public final Shooter m_robotShooter = new Shooter(m_robotMap.m_leftShooterMotor, m_robotMap.m_rightShooterMotor, m_robotMap.m_load, m_robotMap.m_leftTransMotor, m_robotMap.m_rightTransMotor);
+    public final Shooter m_robotShooter = new Shooter(m_robotMap.m_leftShooterMotor, m_robotMap.m_rightShooterMotor /*, m_robotMap.m_load, m_robotMap.m_leftTransMotor, m_robotMap.m_rightTransMotor */);
 
     private Command interrupt = new InstantCommand(() -> {}, m_robotDiffDrive, m_robotShooter);
 
@@ -31,16 +31,16 @@ public class RobotContainer {
         configButtonBindings();
 
 
-        /* Drive Default Commands */
-        m_robotDiffDrive.setDefaultCommand(new RunCommand(() -> {
-            m_robotDiffDrive.driveWithInput(getDeadbandedDriverController().getLeftY(), getDeadbandedDriverController().getLeftX());
-        }, m_robotDiffDrive));
+        // /* Drive Default Commands */
+        // m_robotDiffDrive.setDefaultCommand(new RunCommand(() -> {
+        //     m_robotDiffDrive.driveWithInput(getDeadbandedDriverController().getLeftY(), getDeadbandedDriverController().getLeftX());
+        // }, m_robotDiffDrive));
 
 
         /* Shooter Default Commands */
-        m_robotShooter.setDefaultCommand(new InstantCommand(() -> m_robotShooter.shootWithInput(0), m_robotShooter));
+        //m_robotShooter.setDefaultCommand(new InstantCommand(() -> m_robotShooter.shootWithInput(0), m_robotShooter));
 
-        m_robotShooter.setDefaultCommand(new InstantCommand(() -> m_robotShooter.translateFly("Baseball", 0.5), m_robotShooter));
+     //   m_robotShooter.setDefaultCommand(new InstantCommand(() -> m_robotShooter.translateFly("Baseball", 0.5), m_robotShooter));
 
 
     }
@@ -70,30 +70,14 @@ public class RobotContainer {
 
 
 
-        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.A_BUTTON)           // ! Sets to Baseballs
-            .onTrue(new InstantCommand(() -> m_robotShooter.translateFly("Baseball", 0.5)));
+        // new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.A_BUTTON)           // ! Sets to Baseballs
+        //     .onTrue(new InstantCommand(() -> m_robotShooter.translateFly("Baseball", 0.5)));
 
-        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.B_BUTTON)           // ! Sets to Tennis Balls
-            .onTrue(new InstantCommand(() -> m_robotShooter.translateFly("Tennis", 0.5)));
+        // new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.B_BUTTON)           // ! Sets to Tennis Balls
+        //     .onTrue(new InstantCommand(() -> m_robotShooter.translateFly("Tennis", 0.5)));
 
-        new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.Y_BUTTON)           // ! Sets to Softballs
-            .onTrue(new InstantCommand(() -> m_robotShooter.translateFly("Softball", 0.5)));
-
-        
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+        // new JoystickButton(getDeadbandedDriverController(), frc.utility.XboxController.Y_BUTTON)           // ! Sets to Softballs
+        //     .onTrue(new InstantCommand(() -> m_robotShooter.translateFly("Softball", 0.5)));
     }
 
 

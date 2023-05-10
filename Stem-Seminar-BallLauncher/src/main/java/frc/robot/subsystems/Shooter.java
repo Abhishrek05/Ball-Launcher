@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
@@ -11,19 +13,19 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
-  private PWMTalonSRX leftFlyWheel;
-  private PWMTalonSRX rightFlyWheel;
-  private PWMTalonSRX rightTransMotor;
-  private PWMTalonSRX leftTransMotor;
-  private PWMTalonSRX load;
+  private WPI_TalonSRX leftFlyWheel;
+  private WPI_TalonSRX rightFlyWheel;
+  private WPI_TalonSRX rightTransMotor;
+  private WPI_TalonSRX leftTransMotor;
+  private WPI_TalonSRX load;
   
 
-  public Shooter(PWMTalonSRX leftShooterMotor, PWMTalonSRX rightShooterMotor, PWMTalonSRX load, PWMTalonSRX rightTransMotor, PWMTalonSRX leftTransMotor) {
+  public Shooter(WPI_TalonSRX leftShooterMotor, WPI_TalonSRX rightShooterMotor /*, WPI_TalonSRX load, WPI_TalonSRX rightTransMotor, WPI_TalonSRX leftTransMotor */) {
     this.leftFlyWheel = leftShooterMotor;
     this.rightFlyWheel = rightShooterMotor;
-    this.rightTransMotor = rightTransMotor;
+  /*  this.rightTransMotor = rightTransMotor;
     this.leftTransMotor = leftTransMotor;
-    this.load = load;
+    this.load = load; */
   }
 
   @Override
@@ -41,25 +43,25 @@ public class Shooter extends SubsystemBase {
     rightFlyWheel.set(speed); // Counterclockwise Spin
   }
 
-  public void loadBall(double speed) {
-    load.set(speed);
-  }
+  // public void loadBall(double speed) {
+  //   load.set(speed);
+  // }
 
-  public void translateFly(String name, double speed) {
+//   public void translateFly(String name, double speed) {
 
-    if (name == "Baseball") {
-      rightTransMotor.set(speed);
-      leftTransMotor.set(-speed);
+//     if (name == "Baseball") {
+//       rightTransMotor.set(speed);
+//       leftTransMotor.set(-speed);
       
-    } else if (name == "Tennis") {
-      rightTransMotor.set(speed);
-      leftTransMotor.set(-speed);
+//     } else if (name == "Tennis") {
+//       rightTransMotor.set(speed);
+//       leftTransMotor.set(-speed);
 
-    } else if (name == "Softball") {
-      rightTransMotor.set(speed);
-      leftTransMotor.set(-speed);
+//     } else if (name == "Softball") {
+//       rightTransMotor.set(speed);
+//       leftTransMotor.set(-speed);
 
-    }
-}
+//     }
+// }
 
 }
