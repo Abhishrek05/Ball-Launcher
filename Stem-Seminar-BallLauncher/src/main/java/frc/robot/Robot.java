@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import frc.robot.subsystems.Drive;
+import frc.utility.XboxController;
 
 /**
  * This is a demo program showing the use of the DifferentialDrive class, specifically it contains
@@ -46,7 +47,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     //m_myRobot.tankDrive(-m_leftStick.getY(), -m_rightStick.getY());
-    m_robotContainer.m_robotMap.m_driveTrain.arcadeDrive(0, 0);
+    m_robotContainer.m_robotMap.m_driveTrain.arcadeDrive(m_robotContainer.getDeadbandedDriverController().getLeftY(), 0);
     
   }
 }

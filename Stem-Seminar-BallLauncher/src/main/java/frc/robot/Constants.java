@@ -11,8 +11,8 @@ public final class Constants {
 
     public static final class DriveConstants{
         /* Drive Motor IDs */
-        public static final int LEFT_DRIVE_MOTOR_ID = 7; // TODO
-        public static final int RIGHT_DRIVE_MOTOR_ID = 8; // TODO
+        public static final int LEFT_DRIVE_MOTOR_ID = 0; // TODO
+        public static final int RIGHT_DRIVE_MOTOR_ID = 1; // TODO
     }
 
     public static final class ShooterConstants{

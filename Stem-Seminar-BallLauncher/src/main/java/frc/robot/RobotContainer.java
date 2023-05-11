@@ -31,10 +31,10 @@ public class RobotContainer {
         configButtonBindings();
 
 
-        // /* Drive Default Commands */
-        // m_robotDiffDrive.setDefaultCommand(new RunCommand(() -> {
-        //     m_robotDiffDrive.driveWithInput(getDeadbandedDriverController().getLeftY(), getDeadbandedDriverController().getLeftX());
-        // }, m_robotDiffDrive));
+        /* Drive Default Commands */
+        m_robotDiffDrive.setDefaultCommand(new RunCommand(() -> {
+            m_robotDiffDrive.driveWithInput(getDeadbandedDriverController().getLeftY(), getDeadbandedDriverController().getLeftX());
+        }, m_robotDiffDrive));
 
 
         /* Shooter Default Commands */
