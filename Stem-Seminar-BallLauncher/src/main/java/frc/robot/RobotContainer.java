@@ -17,7 +17,7 @@ import frc.utility.DeadbandedXboxController;
 /** Add your docs here. */
 public class RobotContainer {
     public final RobotMap m_robotMap = new RobotMap();
-    public final Drive m_robotDiffDrive= new Drive(m_robotMap.m_leftDriveMotor, m_robotMap.m_rightDriveMotor, m_robotMap.m_driveTrain);
+    public final Drive m_robotDiffDrive= new Drive(m_robotMap.m_leftDriveMotor, m_robotMap.m_rightDriveMotor, m_robotMap.m_drive);
     public final Shooter m_robotShooter = new Shooter(m_robotMap.m_leftShooterMotor, m_robotMap.m_rightShooterMotor /*, m_robotMap.m_load, m_robotMap.m_leftTransMotor, m_robotMap.m_rightTransMotor */);
 
     private Command interrupt = new InstantCommand(() -> {}, m_robotDiffDrive, m_robotShooter);
